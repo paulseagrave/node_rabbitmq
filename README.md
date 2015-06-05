@@ -7,12 +7,13 @@ Key points
 Rabbit mq needs to be running
 
     sudo rabbitmqctl status 
+    sudo service rabbitmq-server start
 
 You cannot connect with guest:guest - a new account needs to be created
 
     sudo rabbitmqctl add_user username password
 
-The new account needs to have access enabled 
+The new account needs to have access enabled . N.B. Settings below are 'access all areas' and are not suitable for production.
 
     sudo rabbitmqctl set_permissions -p / username ".*" ".* ".*"
     
@@ -28,6 +29,6 @@ is rerun the message should go straight to the consumer .
 
 
 TODO
-Move credentials out of config.js
-Modify the emitter
-Delayed message queues - https://www.rabbitmq.com/blog/2015/04/16/scheduling-messages-with-rabbitmq/
+ - Move credentials out of config.js
+ - Modify the emitter
+ - Delayed message queues - https://www.rabbitmq.com/blog/2015/04/16/scheduling-messages-with-rabbitmq/
